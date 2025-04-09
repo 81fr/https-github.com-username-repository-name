@@ -21,12 +21,19 @@ export default defineConfig({
         main: path.resolve(__dirname, "index.html"),
       },
       output: {
-        manualChunks: undefined
+        manualChunks: undefined,
+        assetFileNames: 'assets/[name].[hash][extname]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js'
       }
     }
   },
   server: {
     host: true,
-    port: 3000
+    port: 3000,
+    strictPort: true,
+    hmr: {
+      overlay: true
+    }
   }
 });
