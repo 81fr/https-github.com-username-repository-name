@@ -3,11 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
+export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
@@ -16,16 +12,21 @@ export default defineConfig(({ mode }) => ({
   },
   base: "/",
   build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    sourcemap: true,
+    minify: "terser",
     rollupOptions: {
-      external: [
-        '@radix-ui/react-tooltip',
-        '@radix-ui/react-checkbox',
-        '@radix-ui/react-label',
-        '@radix-ui/react-popover',
-        '@radix-ui/react-separator',
-        '@radix-ui/react-tabs',
-        '@radix-ui/react-toast'
-      ]
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+      },
+      output: {
+        manualChunks: undefined
+      }
     }
+  },
+  server: {
+    host: true,
+    port: 3000
   }
-}));
+});
