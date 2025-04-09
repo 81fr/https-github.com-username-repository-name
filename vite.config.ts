@@ -15,4 +15,17 @@ export default defineConfig(({ mode }) => ({
     },
   },
   base: process.env.NODE_ENV === 'production' ? '/repository/' : '/',
+  build: {
+    rollupOptions: {
+      external: [
+        '@radix-ui/react-tooltip',
+        '@radix-ui/react-checkbox',
+        '@radix-ui/react-label',
+        '@radix-ui/react-popover',
+        '@radix-ui/react-separator',
+        '@radix-ui/react-tabs',
+        '@radix-ui/react-toast'
+      ]
+    }
+  }
 }));

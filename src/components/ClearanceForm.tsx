@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -96,7 +95,7 @@ const ClearanceForm: React.FC<ClearanceFormProps> = ({
   const isAllCompleted = clearanceItems.every(item => item.completed && item.signature);
   
   return (
-    <div className="max-w-3xl mx-auto animate-fade-in" dir="rtl">
+    <div className="max-w-3xl mx-auto animate-[fade-in_0.5s_ease-in-out]" dir="rtl">
       <Card className="border-2 border-primary/20 shadow-lg mb-6">
         <div className="gold-accent h-2"></div>
         
