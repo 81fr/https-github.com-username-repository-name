@@ -212,9 +212,17 @@ const UnifiedForm: React.FC = () => {
   }
 
   return (
-    <div className="form-container max-w-2xl mx-auto" dir="rtl">
-      <div className="gold-accent h-2 rounded-t-lg -mt-6 md:-mt-8 mb-6"></div>
-      
+    <div className="space-y-6">
+      <div className="flex justify-end mb-4">
+        <Button
+          variant="ghost"
+          onClick={() => window.location.href = '/'}
+          className="flex items-center gap-2"
+        >
+          <HomeIcon className="h-4 w-4" />
+          العودة للرئيسية
+        </Button>
+      </div>
       {currentStep === 'resignation' ? (
         <>
           <h1 className="text-3xl font-bold mb-6 text-navy-dark text-center">نموذج الاستقالة</h1>
@@ -341,9 +349,18 @@ const UnifiedForm: React.FC = () => {
               </div>
             </div>
             
-            <div className="pt-4">
-              <Button type="submit" className="w-full bg-navy hover:bg-navy-light">
-                المتابعة إلى نموذج إخلاء الطرف
+            <div className="flex justify-between items-center">
+              <Button type="submit" className="w-full">
+                التالي
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handlePrint}
+                className="ml-4"
+              >
+                <PrinterIcon className="h-4 w-4 mr-2" />
+                طباعة النموذج
               </Button>
             </div>
           </form>

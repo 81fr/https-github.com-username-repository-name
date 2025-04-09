@@ -16,12 +16,21 @@ export default defineConfig({
     assetsDir: "assets",
     sourcemap: true,
     minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, "index.html"),
       },
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          date: ['date-fns']
+        },
         assetFileNames: 'assets/[name].[hash][extname]',
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js'
