@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: process.env.NODE_ENV === 'production' ? '/repository/' : '/',
+  base: "/arabic-resignation-form/",
   build: {
     rollupOptions: {
       external: [
