@@ -10,7 +10,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/",
+  base: "./",
   build: {
     outDir: "dist",
     assetsDir: "assets",
@@ -28,7 +28,7 @@ export default defineConfig({
       },
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
+          vendor: ['react', 'react-dom'],
           date: ['date-fns']
         },
         assetFileNames: 'assets/[name].[hash][extname]',
